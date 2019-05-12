@@ -1,0 +1,22 @@
+{
+  "name": "janek/ziackaknizka",
+  "description": "Žiacka knižka",
+  "type": "project",
+  "require": {
+    "craftersvk/cheetah": "dev-master",
+    "ext-mysqli": "*"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jakub Janek",
+      "email": "shaman.janek@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "janek\\ziackaknizka\\": "app/"
+    }
+  },
+  "minimum-stability": "dev"
+}

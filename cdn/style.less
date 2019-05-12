@@ -1,0 +1,247 @@
+//Template colors
+@base: #31484B;
+@mild: #C0BFC0;
+@dark: #055C68;
+@light: #6CBAC5;
+@highlight: #3551A4;
+@red: #F3473A;
+@green: #2CBA45;
+
+@small: 15px;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: grid;
+  grid-template-areas: "header	header 	login" "nav	message message" "nav	body	body" "footer	footer	footer";
+
+  grid-template-columns: 0.8fr 5fr 2fr;
+  grid-template-rows: 0.8fr auto 8fr 0.4fr;
+  height: 100vh;
+  background-color: @base;
+
+  header {
+	grid-area: header;
+	padding: @small;
+
+	a {
+	  font-size: 3em;
+	  color: white;
+	  text-decoration: none;
+	}
+  }
+
+  #login {
+	grid-area: login;
+	color: white;
+	text-align: right;
+	padding: @small / 2 @small;
+
+	#logged {
+	  font-size: 1.4em;
+
+	  a {
+		font-size: 0.8em;
+		color: white;
+		background-color: @base;
+
+		&:hover {
+		  color: @mild;
+		  background-color: @base;
+		}
+	  }
+	}
+  }
+
+  nav {
+	grid-area: nav;
+
+	a {
+	  display: block;
+	  font-size: 1.4em;
+	  font-weight: bold;
+	  text-decoration: none;
+	  color: white;
+	  background-color: @base;
+	  padding: 5px;
+
+	  &:hover {
+		background-color: @highlight;
+	  }
+	}
+
+	#menu {
+	  display: none;
+	}
+  }
+
+  section#main {
+	grid-area: body;
+	background-color: @mild;
+	padding: 10px;
+
+	table#timetable {
+	  border-collapse: collapse;
+	  text-align: center;
+	  table-layout: fixed;
+
+	  &, th, td {
+		border: 1px solid black;
+		height: 80px;
+	  }
+
+	  td, th {
+		padding: 5px 10px;
+	  }
+
+	  td div {
+		cursor: pointer;
+		color: black;
+
+		&:hover {
+		  color: @highlight;
+		}
+
+		&.new:hover {
+		  color: @green;
+		}
+
+		&.overlay {
+		  position: absolute;
+		  top: 0;
+		  bottom: 0;
+		  left: 0;
+		  right: 0;
+		  opacity: 0.5;
+
+		  &.able {
+			background-color: @highlight;
+		  }
+
+		  &.unable {
+			opacity: 1;
+			background-color: @red;
+			cursor: not-allowed!important;
+		  }
+
+		  &:hover {
+			opacity: 1;
+		  }
+		}
+	  }
+
+	  td {
+		position: relative;
+	  }
+	}
+
+	ul {
+	  list-style: none;
+
+	  li {
+		margin: 5px 0;
+	  }
+	}
+  }
+
+  footer {
+	grid-area: footer;
+	color: white;
+  }
+
+  #message {
+	grid-area: message;
+
+	p {
+	  padding: @small / 4;
+	}
+
+	#error, #success {
+	  min-height: 0;
+	}
+
+	#error {
+	  background-color: @red;
+	}
+
+	#success {
+	  background-color: @green;
+	}
+  }
+}
+
+#timetable-modal {
+  position: absolute;
+  margin: auto;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 600px;
+  height: 400px;
+  background-color: white;
+  box-shadow: 0 30px 40px rgba(0, 0, 0, 0.5);
+  padding: @small;
+  text-align: center;
+
+  #error {
+	color: @red;
+  }
+
+  #close {
+	@size: 40px;
+
+	line-height: @size;
+	font-weight: bold;
+	text-align: center;
+	color: black;
+	background-color: white;
+	height: @size;
+	width: @size;
+	position: absolute;
+	top: -@size/2;
+	right: -@size/2;
+	border: 1px black solid;
+	border-radius: 30px;
+
+	&:hover {
+	  color: white;
+	  background-color: black;
+	  cursor: pointer;
+	}
+  }
+
+
+  form {
+	label {
+	  width: 250px;
+	  display: inline-block;
+	}
+
+	input, select {
+	  width: 200px;
+	}
+  }
+}
+
+@media only screen and (max-width: 476px) {
+  body {
+	grid-template-areas: "header" "login" "nav" "body" "footer";
+
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr 0.5fr 1fr 1fr 0.5fr;
+
+	nav {
+	  a {
+		display: none;
+	  }
+
+	  #menu {
+		display: block;
+	  }
+	}
+  }
+}

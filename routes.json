@@ -1,0 +1,30 @@
+{
+  "home": {
+    "route": "/",
+    "controller": "LoginController::index"
+  },
+  "class": {
+    "route": "/class/{cid}",
+    "controller": "LoginController::classView"
+  },
+  "user": {
+    "route": "/user/{uid}",
+    "controller": "LoginController::userView"
+  },
+  "admin": {
+    "route": "/admin",
+    "controller": "AdminController::main"
+  },
+  "apiTeacherLessons": {
+    "route": "/api/teacher/{tuid}/lessons",
+    "controller": "LoginController::apiTeacherLessons"
+  },
+  "apiTeacherAvailability": {
+    "route": "/api/teacher/{hid}/unavailable",
+    "controller": "LoginController::apiTeacherAvailability"
+  },
+  "logout": {
+    "route": "/logout",
+    "controller": "UserController::logout"
+  }
+}

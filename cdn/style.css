@@ -1,0 +1,193 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: grid;
+  grid-template-areas: "header	header 	login" "nav	message message" "nav	body	body" "footer	footer	footer";
+  grid-template-columns: 0.8fr 5fr 2fr;
+  grid-template-rows: 0.8fr auto 8fr 0.4fr;
+  height: 100vh;
+  background-color: #31484B;
+}
+body header {
+  grid-area: header;
+  padding: 15px;
+}
+body header a {
+  font-size: 3em;
+  color: white;
+  text-decoration: none;
+}
+body #login {
+  grid-area: login;
+  color: white;
+  text-align: right;
+  padding: 7.5px 15px;
+}
+body #login #logged {
+  font-size: 1.4em;
+}
+body #login #logged a {
+  font-size: 0.8em;
+  color: white;
+  background-color: #31484B;
+}
+body #login #logged a:hover {
+  color: #C0BFC0;
+  background-color: #31484B;
+}
+body nav {
+  grid-area: nav;
+}
+body nav a {
+  display: block;
+  font-size: 1.4em;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  background-color: #31484B;
+  padding: 5px;
+}
+body nav a:hover {
+  background-color: #3551A4;
+}
+body nav #menu {
+  display: none;
+}
+body section#main {
+  grid-area: body;
+  background-color: #C0BFC0;
+  padding: 10px;
+}
+body section#main table#timetable {
+  border-collapse: collapse;
+  text-align: center;
+  table-layout: fixed;
+}
+body section#main table#timetable,
+body section#main table#timetable th,
+body section#main table#timetable td {
+  border: 1px solid black;
+  height: 80px;
+}
+body section#main table#timetable td,
+body section#main table#timetable th {
+  padding: 5px 10px;
+}
+body section#main table#timetable td div {
+  cursor: pointer;
+  color: black;
+}
+body section#main table#timetable td div:hover {
+  color: #3551A4;
+}
+body section#main table#timetable td div.new:hover {
+  color: #2CBA45;
+}
+body section#main table#timetable td div.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.5;
+}
+body section#main table#timetable td div.overlay.able {
+  background-color: #3551A4;
+}
+body section#main table#timetable td div.overlay.unable {
+  opacity: 1;
+  background-color: #F3473A;
+  cursor: not-allowed !important;
+}
+body section#main table#timetable td div.overlay:hover {
+  opacity: 1;
+}
+body section#main table#timetable td {
+  position: relative;
+}
+body section#main ul {
+  list-style: none;
+}
+body section#main ul li {
+  margin: 5px 0;
+}
+body footer {
+  grid-area: footer;
+  color: white;
+}
+body #message {
+  grid-area: message;
+}
+body #message p {
+  padding: 3.75px;
+}
+body #message #error,
+body #message #success {
+  min-height: 0;
+}
+body #message #error {
+  background-color: #F3473A;
+}
+body #message #success {
+  background-color: #2CBA45;
+}
+#timetable-modal {
+  position: absolute;
+  margin: auto;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 600px;
+  height: 400px;
+  background-color: white;
+  box-shadow: 0 30px 40px rgba(0, 0, 0, 0.5);
+  padding: 15px;
+  text-align: center;
+}
+#timetable-modal #error {
+  color: #F3473A;
+}
+#timetable-modal #close {
+  line-height: 40px;
+  font-weight: bold;
+  text-align: center;
+  color: black;
+  background-color: white;
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  border: 1px black solid;
+  border-radius: 30px;
+}
+#timetable-modal #close:hover {
+  color: white;
+  background-color: black;
+  cursor: pointer;
+}
+#timetable-modal form label {
+  width: 250px;
+  display: inline-block;
+}
+#timetable-modal form input,
+#timetable-modal form select {
+  width: 200px;
+}
+@media only screen and (max-width: 476px) {
+  body {
+    grid-template-areas: "header" "login" "nav" "body" "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 0.5fr 1fr 1fr 0.5fr;
+  }
+  body nav a {
+    display: none;
+  }
+  body nav #menu {
+    display: block;
+  }
+}
+/*# sourceMappingURL=style.css.map */

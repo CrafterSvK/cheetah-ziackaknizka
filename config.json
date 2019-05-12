@@ -1,0 +1,11 @@
+{
+    "namespace-prefix": "janek\\ziackaknizka\\controller\\",
+    "default-controller": "",
+    "view-prefix": "view/",
+    "database": {
+        "host": "localhost",
+        "user": "root",
+        "password": "",
+        "name": "ziackaknizkanew"
+    }
+}
